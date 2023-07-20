@@ -357,11 +357,122 @@
         <div style="text-align:center"><h1><a class="hifscor" href="../../principal_ALGA.html">Álgebra Linear e Geometria Analítica</a></h1></div> 
         <h2><a class="hifscor" href="../principal_algLinear.html">Parte 1 - Álgebra Linear</a></h2>
         <h3><a class="hifscor" href="principal_algLinear_capitulo1.html">Capítulo 1 - Espaços Vetoriais</a></h3>
-        <h4>Seção 1 - Plano Cartesiano</h4>
+        <h4>Seção 1 - Plano Euclidiano</h4>
         
         <p>
-            
+            O principal exemplo de espaço vetorial é \(\bbR^{n}\), para algum \(n \in \bbN\), isto é, é o produto cartesiano de \(\bbR\) com ele mesmo \(n\) vezes.
         </p>
+        <p class="equationCenter">
+            \[
+                \bbR^{n} := \underbrace{\bbR \times \cdots \times \bbR}_{n \text{ vezes}}
+            \]
+        </p>
+        <p>
+            Nessas notas, vamos nos concentrar no caso \(n = 2\), o <i>plano Euclidiano</i>, e no caso \(n = 3\), o <i>espaço Euclidiano</i>. Mas o que, exatamente, é um espaço vetorial? A resposta para essa pergunta vai ficar para a próxima seção, contudo, agora, daremos uma motivação para a resposta que virá logo mais. A motivação é entender o plano Euclidiano.
+        </p>
+        <p>
+            O plano Euclidiano, da maneira como foi dita acima, é simplesmente o <strong>conjunto</strong> \(\bbR^{2} = \bbR \times \bbR\), ou seja, é apenas uma <i>coleção</i> de pares ordenados, onde as duas coordenadas são números reais. Mais precisamente,
+        </p>
+        <p class="equationCenter">
+            \[
+                \bbR^{2} = \{(x,y) \mid x, y \in \bbR\}.
+            \]
+        </p>
+        <p>
+            Agora, da nossa experiência com a Matemática do ensino médio, sabemos que \(\bbR\) é mais do que um conjunto, ou seja, é mais do que um amontoado de objetos. Em \(\bbR\) sabemos que existem duas operações, a saber, adição \(+\) e multiplicação \(\cdot\), que satisfazem as seguintes condições:
+            <ul>
+                <li>
+                    comutatividade da adição:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; x, y \in \bbR, \quad x + y = y + x
+                        \]
+                    </div>
+                </li> 
+                <li>
+                    associatividade da adição:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; x, y, z \in \bbR, \quad x + (y + z) = (x + y) + z
+                        \]
+                    </div>
+                </li>
+                <li>
+                    existência do elemento neutro para a adição:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; x \in \bbR, \quad x + 0 = x
+                        \]
+                    </div>
+                </li> 
+                <li>
+                    existência do inverso para a adição:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; x \in \bbR, \quad x + (-x) = 0
+                        \]
+                    </div>
+                </li>
+                <li>
+                    comutatividade da multiplicação:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; x, y \in \bbR, \quad x \cdot y = y \cdot x
+                        \]
+                    </div>
+                </li> 
+                <li>
+                    associatividade da multiplicação:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; x, y, z \in \bbR, \quad x \cdot (y \cdot z) = (x \cdot y) \cdot z
+                        \]
+                    </div>
+                </li>
+                <li>
+                    existência do elemento neutro para a multiplicação:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; x \in \bbR, \quad x \cdot 1 = x
+                        \]
+                    </div>
+                </li> 
+                <li>
+                    existência do inverso para a multiplicação:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; x \in \bbR\setminus\zero, \quad x \cdot \dfrac{1}{x} = 1
+                        \]
+                    </div>
+                </li>
+                <li>
+                    distributividade da multiplicação com relação à adição:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; x, y, z \in \bbR, \quad x \cdot (y + z) = x \cdot y + x \cdot z
+                        \]
+                    </div>
+                </li> 
+            </ul>
+            Isso faz de \(\bbR\) uma <i>estrutura algébrica</i> chamada <a href="https://en.wikipedia.org/wiki/Field_(mathematics)">corpo</a>, mas não se preocupe. É só um nome para enriquecer seu vocabulário. O importante aqui é que podemos usar essa estrutura algébrica de \(\bbR\) para enriquecer \(\bbR^{2}\). Semelhantemente a \(\bbR\), vamos definir uma adição, porém a diferença é que não definiremos uma multiplicação. Vamos definir quem é \((x_{1}, y_{1}) + (x_{2}, y_{2})\), contudo não definiremos \((x_{1}, y_{1}) \cdot (x_{2}, y_{2})\). O que faremos aqui é uma multiplicação por <i>escalar</i>, uma espécie de ação de \(\bbR\) em \(\bbR^{2}\), ou seja, dados \(z \in \bbR\) e \((x, y) \in \bbR^{2}\), vamos dizer o que \(z\) faz em \((x, y)\), ou melhor, o que \(z \cdot (x, y)\) significa. Vamos lá!
+        </p>
+        <p>
+            Definimos a adição de dois elementos de \(\bbR^{2}\) pela adição coordenada a coordenada, isto é, dados \((x_{1}, y_{1}), (x_{2}, y_{2}) \in \bbR^{2}\),
+        </p>
+        <p class="equationCenter">
+            \[
+                (x_{1}, y_{1}) + (x_{2}, y_{2}) := (x_{1} + x_{2}, y_{1} + y_{2})
+            \]
+        </p>
+        <p>
+            Definimos a multiplicação por escalar pela também multiplicação coordenada a coordenada, isto é, dados \(z \in \bbR\) e \((x, y) \in \bbR^{2}\),
+        </p>
+        <p class="equationCenter">
+            \[
+                z \cdot (x, y) := (z \cdot x, z \cdot y)
+            \]
+        </p>
+        
         
         <div>
             <a href="algLinear_capitulo1_introducao.html">
@@ -371,7 +482,7 @@
         
         <div>
             <a href="algLinear_capitulo1_secao2.html">
-                <button class="button button1">Seção 2 - Plano Cartesiano </button>
+                <button class="button button1">Seção 2 - Espaço Vetorial sobre \(\bbR\)</button>
             </a>
         </div>
     </body>  
