@@ -460,19 +460,106 @@
             Definimos a adição de dois elementos de \(\bbR^{2}\) pela adição coordenada a coordenada, isto é, dados \((x_{1}, y_{1}), (x_{2}, y_{2}) \in \bbR^{2}\),
         </p>
         <p class="equationCenter">
-            \[
+            \begin{equation} \label{eq_somaR2}
                 (x_{1}, y_{1}) + (x_{2}, y_{2}) := (x_{1} + x_{2}, y_{1} + y_{2})
-            \]
+            \end{equation}
         </p>
         <p>
-            Definimos a multiplicação por escalar pela também multiplicação coordenada a coordenada, isto é, dados \(z \in \bbR\) e \((x, y) \in \bbR^{2}\),
+            Definimos a multiplicação por escalar também pela multiplicação coordenada a coordenada, isto é, dados \(z \in \bbR\) e \((x, y) \in \bbR^{2}\),
+        </p>
+        <p class="equationCenter">
+            \begin{equation} \label{eq_prodRemR2}
+                z \cdot (x, y) := (z \cdot x, z \cdot y)
+            \end{equation}
+        </p>
+        <p>
+            Observe que o "\(+\)" à esquerda do símbolo "\(:=\)", na Equação \eqref{eq_somaR2}, é diferente do "\(+\)" à direita do símbolo "\(:=\)". O "\(+\)" à direita é a adição em \(\bbR\) que já sabemos como funciona, enquanto o "\(+\)" à esquerda é um símbolo que estamos definindo. O rigor matemático pede que usemos uma nova notação, por exemplo, \(\oplus\), mas a prática e o bom senso nos permite fazer esse abuso de notação, coisa comum na Matemática, sempre quando não há problema de ambiguidade ou confusão, como é este o caso. Quando você ver "\(+\)" entre dois pares ordenados, você sabe que se trata de uma adição em \(\bbR^{2}\), enquanto o "\(+\)" entre dois números reais é a adição em \(\bbR\). O mesmo acontece com "\(\cdot\)" na Equação \eqref{eq_prodRemR2}.
+        </p>
+        <p>
+            Definidas essas operações, note que a adição em \(\bbR^{2}\) herda as mesmas propriedades da adição em \(\bbR\) listadas a alguns parágrafos acima, quais sejam:
+            <ul>
+                <li>comutatividade da adição,</li>
+                <li>associatividade da adição,</li>
+                <li>existência do elemento neutro para a adição,</li>
+                <li>existência do inverso para a adição.</li>
+            </ul>
+            Vamos provar a comutatividade e deixar, como exercício, a prova das outras propriedades. Assim, para provar a comutatividade, sejam \((x_{1},y_{1}), (x_{2},y_{2}) \in \bbR^{2}\). Então
         </p>
         <p class="equationCenter">
             \[
-                z \cdot (x, y) := (z \cdot x, z \cdot y)
+                \begin{split}
+                    (x_{1},y_{1}) + (x_{2},y_{2}) &= {\scriptsize \text{ (definição de } + \text{ em } \bbR^{2} \text{) }}  (x_{1} + x_{2}, y_{1} + y_{2}) \\
+                    {\scriptsize \text{(comutatividade de } + \text{ em } \bbR \text{) }} &= (x_{2} + x_{1}, y_{2} + y_{1}) \\
+                    {\scriptsize \text{(definição de } + \text{ em } \bbR^{2} \text{) }} &= (x_{2},y_{2}) + (x_{1},y_{1}).
+                \end{split}
             \]
         </p>
+        <p>
+            Agora, veja que a multiplicação por escalar satisfaz as seguintes propriedades:
+            <ul>
+                <li>
+                    distributividade com relação à adição em \(\bbR\):
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; z_{1}, z_{2} \in \bbR, \;\;\; \forall \;\; (x, y) \in \bbR^{2} \quad (z_{1} + z_{2}) \cdot (x, y) = z_{1} \cdot (x, y) + z_{2} \cdot (x, y)
+                        \]
+                    </div>
+                </li>
+                <li>
+                    distributividade com relação à adição em \(\bbR^{2}\):
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; z \in \bbR, \;\;\; \forall \;\; (x_{1}, y_{1}), (x_{2}, y_{2}) \in \bbR^{2} \quad z \cdot \big((x_{1}, y_{1}) + (x_{2}, y_{2})\big) = z \cdot (x_{1}, y_{1}) + z \cdot (x_{2}, y_{2})
+                        \]
+                    </div>
+                </li>
+                <li>
+                    multiplicação em \(\bbR\) se comporta bem com a multiplicação por escalar, no seguinte sentido:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; z_{1}, z_{2} \in \bbR, \;\;\; \forall \;\; (x, y) \in \bbR^{2} \quad (z_{1} \cdot z_{2}) \cdot (x, y) = z_{1} \cdot \big(z_{2} \cdot (x, y)\big)
+                        \]
+                    </div>
+                </li>
+                <li>
+                    o número \(1 \in \bbR\) é o elemento neutro:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; (x, y) \in \bbR^{2} \quad 1 \cdot (x, y) = (x, y)
+                        \]
+                    </div>
+                </li>
+            </ul>
+        </p>
+        <p>
+            Se você achou muito abstrato, substitua as variáveis por algum valor concreto e veja como funciona. Por exemplo, considere \(2, 3 \in \bbR\) e \((5, 7) \in \bbR^{2}\). Então, por um lado,
+        </p>
+        <p class="equationCenter">
+            \[
+                (2 \cdot 3) \cdot (5, 7) = 6 \cdot (5, 7) = (6 \cdot 5, 6 \cdot 7) = (30, 42)
+            \]
+        </p>
+        <p>
+            e, por outro,
+        </p>
+        <p class="equationCenter">
+            \[
+                2 \cdot \big(3 \cdot (5, 7)\big) = 2 \cdot (3 \cdot 5, 3 \cdot 7) =  2 \cdot (15, 21) = (2 \cdot 15, 2 \cdot 21) = (30, 42),
+            \]
+        </p>
+        <p>
+            ou seja, vimos para um caso particular que \((z_{1} \cdot z_{2}) \cdot (x, y) = z_{1} \cdot \big(z_{2} \cdot (x, y)\big)\). Mas perceba que isso não é uma demonstração. É somente algo para nos trazer intuição ou mesmo nos fazer crer na afirmação. Demonstração é geral e não particular. Assim, da mesma forma como fizemos para a adição em \(\bbR^{2}\), vamos demonstrar uma das afirmações de deixar as outras para você se exercitar. Vamos demonstrar a distributividade da multiplicação por escalar com relação à adição em \(\bbR\). Para isso, sejam \(z_{1}, z_{2} \in \bbR\) e \((x, y) \in \bbR^{2}\). Então
+        </p>
+        <p class="equationCenter">
+            \[
+                \begin{split}
+                    (z_{1} + z_{2}) \cdot (x, y) &= {\scriptsize \text{ (definição de } \cdot \text{ em } \bbR^{2} \text{) }} \big((z_{1} + z_{2}) \cdot x, (z_{1} + z_{2}) \cdot y\big)\\
+                \end{split}
+            \]
+        </p>
+        <p>
         
+        </p>
         
         <div>
             <a href="algLinear_capitulo1_introducao.html">
