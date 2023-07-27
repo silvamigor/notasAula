@@ -351,6 +351,40 @@
                 background-color: rgb(152,53,0);
                 color: white;
             }
+            ol.vet {
+                counter-reset: contVet;
+            }
+            ol.vet > li {
+                list-style: none;
+                position: relative;
+            }
+            ol.vet > li:before {
+                counter-increment: contVet;
+                content:"(V" counter(contVet)") ";
+                position: relative;
+                left: -5px;
+                margin-left: -25px;
+                padding-right: 5px;
+                text-align: center;
+                width: 40px;
+            }
+            ol.vet2 {
+                counter-reset: contVet2 4;
+            }
+            ol.vet2 > li {
+                list-style: none;
+                position: relative;
+            }
+            ol.vet2 > li:before {
+                counter-increment: contVet2;
+                content:"(V" counter(contVet2)") ";
+                position: relative;
+                left: -5px;
+                margin-left: -25px;
+                padding-right: 5px;
+                text-align: center;
+                width: 40px;
+            }
         </style>
     </head>
     <body>
@@ -379,13 +413,13 @@
             \]
         </p>
         <p>
-            Agora, da nossa experiência com a Matemática do ensino médio, sabemos que \(\bbR\) é mais do que um conjunto, ou seja, é mais do que um amontoado de objetos. Em \(\bbR\) sabemos que existem duas operações, a saber, adição \(+\) e multiplicação \(\cdot\), que satisfazem as seguintes condições:
+            Vamos ver que em \(\bbR^{2}\) podemos definir duas operações que o tornarão um espaço vetorial. Para isso, vamos recuar e dar uma olhada em \(\bbR\). Sabemos, da nossa experiência com a Matemática do ensino médio, que \(\bbR\) é mais do que um conjunto, ou seja, é mais do que um amontoado de objetos. Em \(\bbR\) sabemos que existem duas operações, a saber, adição \(+\) e multiplicação \(\cdot\), que satisfazem as seguintes condições:
             <ul>
                 <li>
                     comutatividade da adição:
                     <div class="equationCenter">
                         \[
-                            \forall \;\; x, y \in \bbR, \quad x + y = y + x
+                            \forall \;\; x, y \in \bbR, \quad x + y = y + x,
                         \]
                     </div>
                 </li> 
@@ -393,7 +427,7 @@
                     associatividade da adição:
                     <div class="equationCenter">
                         \[
-                            \forall \;\; x, y, z \in \bbR, \quad x + (y + z) = (x + y) + z
+                            \forall \;\; x, y, z \in \bbR, \quad x + (y + z) = (x + y) + z,
                         \]
                     </div>
                 </li>
@@ -401,7 +435,7 @@
                     existência do elemento neutro para a adição:
                     <div class="equationCenter">
                         \[
-                            \forall \;\; x \in \bbR, \quad x + 0 = x
+                            \forall \;\; x \in \bbR, \quad x + 0 = x,
                         \]
                     </div>
                 </li> 
@@ -409,7 +443,7 @@
                     existência do inverso para a adição:
                     <div class="equationCenter">
                         \[
-                            \forall \;\; x \in \bbR, \quad x + (-x) = 0
+                            \forall \;\; x \in \bbR, \quad x + (-x) = 0,
                         \]
                     </div>
                 </li>
@@ -417,7 +451,7 @@
                     comutatividade da multiplicação:
                     <div class="equationCenter">
                         \[
-                            \forall \;\; x, y \in \bbR, \quad x \cdot y = y \cdot x
+                            \forall \;\; x, y \in \bbR, \quad x \cdot y = y \cdot x,
                         \]
                     </div>
                 </li> 
@@ -425,7 +459,7 @@
                     associatividade da multiplicação:
                     <div class="equationCenter">
                         \[
-                            \forall \;\; x, y, z \in \bbR, \quad x \cdot (y \cdot z) = (x \cdot y) \cdot z
+                            \forall \;\; x, y, z \in \bbR, \quad x \cdot (y \cdot z) = (x \cdot y) \cdot z,
                         \]
                     </div>
                 </li>
@@ -433,7 +467,7 @@
                     existência do elemento neutro para a multiplicação:
                     <div class="equationCenter">
                         \[
-                            \forall \;\; x \in \bbR, \quad x \cdot 1 = x
+                            \forall \;\; x \in \bbR, \quad x \cdot 1 = x,
                         \]
                     </div>
                 </li> 
@@ -441,7 +475,7 @@
                     existência do inverso para a multiplicação:
                     <div class="equationCenter">
                         \[
-                            \forall \;\; x \in \bbR\setminus\zero, \quad x \cdot \dfrac{1}{x} = 1
+                            \forall \;\; x \in \bbR\setminus\zero, \quad x \cdot \dfrac{1}{x} = 1,
                         \]
                     </div>
                 </li>
@@ -449,19 +483,19 @@
                     distributividade da multiplicação com relação à adição:
                     <div class="equationCenter">
                         \[
-                            \forall \;\; x, y, z \in \bbR, \quad x \cdot (y + z) = x \cdot y + x \cdot z
+                            \forall \;\; x, y, z \in \bbR, \quad x \cdot (y + z) = x \cdot y + x \cdot z.
                         \]
                     </div>
                 </li> 
             </ul>
-            Isso faz de \(\bbR\) uma <i>estrutura algébrica</i> chamada <a href="https://en.wikipedia.org/wiki/Field_(mathematics)">corpo</a>, mas não se preocupe. É só um nome para enriquecer seu vocabulário. O importante aqui é que podemos usar essa estrutura algébrica de \(\bbR\) para enriquecer \(\bbR^{2}\). Semelhantemente a \(\bbR\), vamos definir uma adição, porém a diferença é que não definiremos uma multiplicação. Vamos definir quem é \((x_{1}, y_{1}) + (x_{2}, y_{2})\), contudo não definiremos \((x_{1}, y_{1}) \cdot (x_{2}, y_{2})\). O que faremos aqui é uma multiplicação por <i>escalar</i>, uma espécie de ação de \(\bbR\) em \(\bbR^{2}\), ou seja, dados \(z \in \bbR\) e \((x, y) \in \bbR^{2}\), vamos dizer o que \(z\) faz em \((x, y)\), ou melhor, o que \(z \cdot (x, y)\) significa. Vamos lá!
+            Isso faz de \(\bbR\) uma <i>estrutura algébrica</i> chamada <a href="https://en.wikipedia.org/wiki/Field_(mathematics)">corpo</a>, mas não se preocupe. É só um nome para enriquecer seu vocabulário. O importante aqui é que podemos usar essa estrutura algébrica de \(\bbR\) para enriquecer \(\bbR^{2}\). Semelhantemente a \(\bbR\), vamos definir em \(\bbR^{2}\) uma adição, porém a diferença é que não definiremos uma multiplicação. Vamos definir quem é \((x_{1}, y_{1}) + (x_{2}, y_{2})\), contudo não definiremos \((x_{1}, y_{1}) \cdot (x_{2}, y_{2})\). O que faremos aqui é uma multiplicação por <i>escalar</i>, uma espécie de ação de \(\bbR\) em \(\bbR^{2}\), ou seja, dados \(z \in \bbR\) e \((x, y) \in \bbR^{2}\), vamos dizer o que \(z\) faz em \((x, y)\), ou melhor, o que \(z \cdot (x, y)\) significa. Vamos lá!
         </p>
         <p>
             Definimos a adição de dois elementos de \(\bbR^{2}\) pela adição coordenada a coordenada, isto é, dados \((x_{1}, y_{1}), (x_{2}, y_{2}) \in \bbR^{2}\),
         </p>
         <p class="equationCenter">
             \begin{equation} \label{eq_somaR2}
-                (x_{1}, y_{1}) + (x_{2}, y_{2}) := (x_{1} + x_{2}, y_{1} + y_{2})
+                (x_{1}, y_{1}) + (x_{2}, y_{2}) := (x_{1} + x_{2}, y_{1} + y_{2}).
             \end{equation}
         </p>
         <p>
@@ -469,7 +503,7 @@
         </p>
         <p class="equationCenter">
             \begin{equation} \label{eq_prodRemR2}
-                z \cdot (x, y) := (z \cdot x, z \cdot y)
+                z \cdot (x, y) := (z \cdot x, z \cdot y).
             \end{equation}
         </p>
         <p>
@@ -477,13 +511,41 @@
         </p>
         <p>
             Definidas essas operações, note que a adição em \(\bbR^{2}\) herda as mesmas propriedades da adição em \(\bbR\) listadas a alguns parágrafos acima, quais sejam:
-            <ul>
-                <li>comutatividade da adição,</li>
-                <li>associatividade da adição,</li>
-                <li>existência do elemento neutro para a adição,</li>
-                <li>existência do inverso para a adição.</li>
-            </ul>
-            Vamos provar a comutatividade e deixar, como exercício, a prova das outras propriedades. Assim, para provar a comutatividade, sejam \((x_{1},y_{1}), (x_{2},y_{2}) \in \bbR^{2}\). Então
+            <ol class="vet">
+                <li>
+                    comutatividade da adição:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; (x_{1}, y_{1}), (x_{2}, y_{2}) \in \bbR^{2} \quad (x_{1}, y_{1}) + (x_{2}, y_{2}) = (x_{2}, y_{2}), (x_{1}, y_{1}),
+                        \]
+                    </div> 
+                </li>
+                <li>
+                    associatividade da adição:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; (x_{1}, y_{1}), (x_{2}, y_{2}), (x_{3}, y_{3}) \in \bbR^{2} \quad \big((x_{1}, y_{1}) + (x_{2}, y_{2})\big) + (x_{3}, y_{3}) = (x_{1}, y_{1}) + \big((x_{2}, y_{2}) + (x_{3}, y_{3})\big),
+                        \]
+                    </div>
+                </li>
+                <li>
+                    existência do elemento neutro para a adição:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; (x, y) \in \bbR^{2} \quad (x, y) + (0, 0) = (x, y),
+                        \]
+                    </div>
+                </li>
+                <li>
+                    existência do inverso para a adição:
+                    <div class="equationCenter">
+                        \[
+                            \forall \;\; (x, y) \in \bbR^{2} \quad (x, y) + (-x, -y) = (0, 0).
+                        \]
+                    </div>    
+                </li>
+            </ol>
+            Vamos provar (V1) e deixar, como exercício, a prova das outras propriedades. Assim, para provar (V1), sejam \((x_{1},y_{1}), (x_{2},y_{2}) \in \bbR^{2}\). Então
         </p>
         <p class="equationCenter">
             \[
@@ -495,8 +557,8 @@
             \]
         </p>
         <p>
-            Agora, veja que a multiplicação por escalar satisfaz as seguintes propriedades:
-            <ul>
+            Agora, veja que a multiplicação por escalar satisfaz as seguintes condições:
+            <ol class="vet2">
                 <li>
                     distributividade com relação à adição em \(\bbR\):
                     <div class="equationCenter">
@@ -514,7 +576,7 @@
                     </div>
                 </li>
                 <li>
-                    multiplicação em \(\bbR\) se comporta bem com a multiplicação por escalar, no seguinte sentido:
+                    compatibilidade da multiplicação em \(\bbR\) com a multiplicação por escalar:
                     <div class="equationCenter">
                         \[
                             \forall \;\; z_{1}, z_{2} \in \bbR, \;\;\; \forall \;\; (x, y) \in \bbR^{2} \quad (z_{1} \cdot z_{2}) \cdot (x, y) = z_{1} \cdot \big(z_{2} \cdot (x, y)\big)
@@ -522,17 +584,17 @@
                     </div>
                 </li>
                 <li>
-                    o número \(1 \in \bbR\) é o elemento neutro:
+                    coincidência entre elemento neutro da multiplicação em \(\bbR\) e o elemento neutro da multiplicação por escalar:
                     <div class="equationCenter">
                         \[
                             \forall \;\; (x, y) \in \bbR^{2} \quad 1 \cdot (x, y) = (x, y)
                         \]
                     </div>
                 </li>
-            </ul>
+            </ol>
         </p>
         <p>
-            Se você achou muito abstrato, substitua as variáveis por algum valor concreto e veja como funciona. Por exemplo, considere \(2, 3 \in \bbR\) e \((5, 7) \in \bbR^{2}\). Então, por um lado,
+            Se você achou muito abstrato, substitua as variáveis por algum valor concreto e veja como funciona. Por exemplo, considere a condição (V7) e tome \(2, 3 \in \bbR\) e \((5, 7) \in \bbR^{2}\). Então, por um lado,
         </p>
         <p class="equationCenter">
             \[
@@ -548,12 +610,23 @@
             \]
         </p>
         <p>
-            ou seja, vimos para um caso particular que \((z_{1} \cdot z_{2}) \cdot (x, y) = z_{1} \cdot \big(z_{2} \cdot (x, y)\big)\). Mas perceba que isso não é uma demonstração. É somente algo para nos trazer intuição ou mesmo nos fazer crer na afirmação. Demonstração é geral e não particular. Assim, da mesma forma como fizemos para a adição em \(\bbR^{2}\), vamos demonstrar uma das afirmações de deixar as outras para você se exercitar. Vamos demonstrar a distributividade da multiplicação por escalar com relação à adição em \(\bbR\). Para isso, sejam \(z_{1}, z_{2} \in \bbR\) e \((x, y) \in \bbR^{2}\). Então
+            ou seja, 
+        </p>
+        <p class="equationCenter">
+            \[
+                (2 \cdot 3) \cdot (5, 7) = 2 \cdot \big(3 \cdot (5, 7)\big).
+            \]
+        </p>
+        </p>
+            Isso mostrar, para o caso particular analisado, que vale (V7). Mas perceba que isso não é uma demonstração. É somente algo para nos trazer intuição ou mesmo nos fazer crer na afirmação. Demonstração é geral e não particular. Assim, da mesma forma como fizemos para a adição em \(\bbR^{2}\), vamos demonstrar uma das afirmações de deixar as outras para você se exercitar. Vamos demonstrar (V7). Para isso, sejam \(z_{1}, z_{2} \in \bbR\) e \((x, y) \in \bbR^{2}\). Então
         </p>
         <p class="equationCenter">
             \[
                 \begin{split}
-                    (z_{1} + z_{2}) \cdot (x, y) &= {\scriptsize \text{ (definição de } \cdot \text{ em } \bbR^{2} \text{) }} \big((z_{1} + z_{2}) \cdot x, (z_{1} + z_{2}) \cdot y\big)\\
+                    (z_{1} \cdot z_{2}) \cdot (x, y) &= {\scriptsize \text{ (definição de } \cdot \text{ em } \bbR^{2} \text{) }} \big((z_{1} \cdot z_{2}) \cdot x, (z_{1} \cdot z_{2}) \cdot y\big) \\
+                    {\scriptsize \text{(associatividade de } + \text{ em } \bbR \text{) }} &= \big(z_{1} \cdot (z_{2} \cdot x), z_{1} \cdot (z_{2} \cdot y)\big) \\
+                    {\scriptsize \text{(definição de } \cdot \text{ em } \bbR^{2} \text{) }} &= z_{1} \cdot (z_{2} \cdot x, z_{2} \cdot y) \\
+                    {\scriptsize \text{(definição de } \cdot \text{ em } \bbR^{2} \text{) }} &= z_{1} \cdot \big(z_{2} \cdot (x, y)\big)
                 \end{split}
             \]
         </p>
