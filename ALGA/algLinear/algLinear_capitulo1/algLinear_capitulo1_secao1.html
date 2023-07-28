@@ -385,6 +385,23 @@
                 text-align: center;
                 width: 40px;
             }
+            ol.corpo {
+                counter-reset: contCorpo;
+            }
+            ol.corpo > li {
+                list-style: none;
+                position: relative;
+            }
+            ol.corpo > li:before {
+                counter-increment: contCorpo;
+                content:"(C" counter(contCorpo)") ";
+                position: relative;
+                left: -5px;
+                margin-left: -25px;
+                padding-right: 5px;
+                text-align: center;
+                width: 40px;
+            }
         </style>
     </head>
     <body>
@@ -414,7 +431,7 @@
         </p>
         <p>
             Vamos ver que em \(\bbR^{2}\) podemos definir duas operações que o tornarão um espaço vetorial. Para isso, vamos recuar e dar uma olhada em \(\bbR\). Sabemos, da nossa experiência com a Matemática do ensino médio, que \(\bbR\) é mais do que um conjunto, ou seja, é mais do que um amontoado de objetos. Em \(\bbR\) sabemos que existem duas operações, a saber, adição \(+\) e multiplicação \(\cdot\), que satisfazem as seguintes condições:
-            <ul>
+            <ol class="corpo">
                 <li>
                     comutatividade da adição:
                     <div class="equationCenter">
@@ -487,7 +504,7 @@
                         \]
                     </div>
                 </li> 
-            </ul>
+            </ol>
             Isso faz de \(\bbR\) uma <i>estrutura algébrica</i> chamada <a href="https://en.wikipedia.org/wiki/Field_(mathematics)">corpo</a>, mas não se preocupe. É só um nome para enriquecer seu vocabulário. O importante aqui é que podemos usar essa estrutura algébrica de \(\bbR\) para enriquecer \(\bbR^{2}\). Semelhantemente a \(\bbR\), vamos definir em \(\bbR^{2}\) uma adição, porém a diferença é que não definiremos uma multiplicação. Vamos definir quem é \((x_{1}, y_{1}) + (x_{2}, y_{2})\), contudo não definiremos \((x_{1}, y_{1}) \cdot (x_{2}, y_{2})\). O que faremos aqui é uma multiplicação por <i>escalar</i>, uma espécie de ação de \(\bbR\) em \(\bbR^{2}\), ou seja, dados \(z \in \bbR\) e \((x, y) \in \bbR^{2}\), vamos dizer o que \(z\) faz em \((x, y)\), ou melhor, o que \(z \cdot (x, y)\) significa. Vamos lá!
         </p>
         <p>
@@ -626,12 +643,15 @@
                     (z_{1} \cdot z_{2}) \cdot (x, y) &= {\scriptsize \text{ (definição de } \cdot \text{ em } \bbR^{2} \text{) }} \big((z_{1} \cdot z_{2}) \cdot x, (z_{1} \cdot z_{2}) \cdot y\big) \\
                     {\scriptsize \text{(associatividade de } + \text{ em } \bbR \text{) }} &= \big(z_{1} \cdot (z_{2} \cdot x), z_{1} \cdot (z_{2} \cdot y)\big) \\
                     {\scriptsize \text{(definição de } \cdot \text{ em } \bbR^{2} \text{) }} &= z_{1} \cdot (z_{2} \cdot x, z_{2} \cdot y) \\
-                    {\scriptsize \text{(definição de } \cdot \text{ em } \bbR^{2} \text{) }} &= z_{1} \cdot \big(z_{2} \cdot (x, y)\big)
+                    {\scriptsize \text{(definição de } \cdot \text{ em } \bbR^{2} \text{) }} &= z_{1} \cdot \big(z_{2} \cdot (x, y)\big).
                 \end{split}
             \]
         </p>
         <p>
-        
+            Assim, mostramos que a adição e a multiplicação por escalar em \(\bbR^{2}\) satisfazem as condições de (V1) a (V8).
+        </p>
+        <p>
+            Muitas vezes, para enfatizar que \(\bbR^{2}\) é mais do que um conjunto, quero dizer, que ele, além de conjunto, também está munido de duas operações, \(+\) e \(\cdot\), escrevemos \((\bbR^{2}, +, \cdot)\). Nesse caso, também pode ser dito que \((\bbR^{2}, +, \cdot)\) satisfaz as condições de (V1) a (V8). Perceba que o fizemos para \(\bbR^{2}\) poderia, sem grandes dificuldades, ser generalizado para \(\bbR^{n}\), com \(n \in \bbN\), de modo a podermos fazer a mesma afirmação feita para \(\bbR^{2}\), a saber, \((\bbR^{n}, +, \cdot)\) satisfaz as condições de (V1) a (V8), para qualquer \(n \in \bbN\). Isso é, exatamente, o que torna um conjunto um espaço vetorial: possuir uma adição e uma multiplicação por escalar tal que tais operações satisfazem as condições de (V1) a (V8). Mas escreveremos isso, formalmente na próxima seção. Antes, vamos finalizar essa seção trabalhando um pouco nossa noção geométrica, no plano Euclidiano.
         </p>
         
         <div>
